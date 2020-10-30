@@ -1,0 +1,145 @@
+<?php
+
+require_once("../util/Conexao.php");
+require_once("../entidades/Responsavel");
+class ResponsavelDAO{
+
+	public static function getInstance() {
+        if (!isset(self::$instance))
+            self::$instance = new ResponsavelDAO();
+ 
+        return self::$instance;
+    }
+
+    public function lista(){
+		$sql = "SELECT * FROM responsavel;";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->execute();
+		$c = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $c;
+		//return $result;
+	}
+
+	public function getResponsavelPorID($id){
+		$sql = "SELECT * FROM responsavel WHERE id=?;";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$id);
+		$result->execute();
+		$c = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $c;
+		//return $result;
+	}
+
+	public function login($email,$senha){
+		$sql = "SELECT * FROM responsavel WHERE e_mail=? AND senha=?";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$email);
+		$result->bindParam(2,$senha);
+		$result->execute();
+		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $resultado[0];
+		//return $result;
+	}
+
+	public function alteraEmail($id,$email){
+		$sql = "UPDATE responsavel SET e_mail=? where id=?";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$email);
+		$result->bindParam(2,$id);
+		$result->execute();
+		$retorno = false;
+		echo $result->rowCount();
+		if($result->rowCount()>0){
+			$retorno=true;
+		}else{
+			$retorno=false;
+		}
+		return $retorno;
+	}
+
+	public function isEmailUsuario($id,$email){
+		$sql = "SELECT * FROM responsavel WHERE id=? AND e_mail=?";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$id);
+		$result->bindParam(2,$email);
+		$result->execute();
+		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		if(cont($resultado)>0){$retorno=true;}else{$retorno=false;}
+		return $retorno;
+	}
+
+	public function alteraSenha($id,$senha){
+		$sql = "UPDATE responsavel SET senha=? where id=?";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$senha);
+		$result->bindParam(2,$id);
+		$result->execute();
+		$retorno = false;
+		echo $result->rowCount();
+		if($result->rowCount()>0){
+			$retorno=true;
+		}else{
+			$retorno=false;
+		}
+		return $retorno;
+	}
+
+	public function isSenhaUsuario($id,$senha){
+		$sql = "SELECT * FROM responsavel WHERE id=? AND senha=?";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$id);
+		$result->bindParam(2,$senha);
+		$result->execute();
+		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		if(cont($resultado)>0){$retorno=true;}else{$retorno=false;}
+		return $retorno;
+	}
+
+	public function validaCpfEmail($cpf,$email){
+		$sql = "SELECT * FROM responsavel WHERE cpf=? AND e_mail=?";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$cpf);
+		$result->bindParam(2,$email);
+		$result->execute();
+		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $resultado[0];
+	}
+
+	public function criaResponsavel($nome,$sobrenome,$dtNasc,$cpf,$email,$senha,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep,$celular,$telefone,$observacao){
+
+		$sql = "INSERT INTO tcc.responsavel VALUES ($nome,$sobrenome,$dtNasc,$cpf,$email,$senha,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep,$celular,$telefone,$observacao) ";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$nome);
+		$result->bindParam(2,$sobrenome);
+		$result->bindParam(3,$dtNasc);
+		$result->bindParam(4,$cpf);
+		$result->bindParam(5,$email);
+		$result->bindParam(7,$senha);
+		$result->bindParam(8,$endereco);
+		$result->bindParam(9,$numero);
+		$result->bindParam(10,$complemento);
+		$result->bindParam(11,$bairro);
+		$result->bindParam(12,$cidade);
+		$result->bindParam(13,$estado);
+		$result->bindParam(14,$cep);
+		$result->bindParam(15,$celular);
+		$result->bindParam(16,$telefone);
+		$result->bindParam(17,$observacao);
+		$result->execute();
+		$retorno = false;
+		echo $result->rowCount();
+		
+		if($result->rowCount()>0){
+			$retorno=true;
+		}else{
+			$retorno=false;
+		}
+		return $retorno;
+	}
+}
+
+?>

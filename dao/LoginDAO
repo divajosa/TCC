@@ -1,0 +1,35 @@
+<?php
+
+require_once("../util/Conexao.php");
+require_once("../entidades/Login");
+class LoginDAO{
+
+	public static function getInstance() {
+        if (!isset(self::$instance))
+            self::$instance = new LoginDAO();
+ 
+        return self::$instance;
+    }
+
+    public function lista(){
+		$sql = "SELECT * FROM login;";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->execute();
+		$c = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $c;
+		//return $result;
+	}
+
+	public function login($email,$senha){
+		$sql = "SELECT * FROM login WHERE e_mail=? AND senha=?";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$email);
+		$result->bindParam(2,$senha);
+		return $result->execute();
+		//return $result;
+	}
+
+}
+
+?>

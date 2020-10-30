@@ -1,0 +1,45 @@
+<?php
+
+require_once("../util/Conexao.php");
+require_once("../entidades/Contato");
+class ContatoDAO{
+
+	public static function getInstance() {
+        if (!isset(self::$instance))
+            self::$instance = new ContatoDAO();
+ 
+        return self::$instance;
+    }
+
+    public function lista(){
+		$sql = "SELECT * FROM contato;";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->execute();
+		$c = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $c;
+		//return $result;
+	}
+
+	public function criaContato($nome,$email,$assunto,$cidade,$estado,$observacao){
+		$sql = "INSERT INTO tcc.contato(nome,e_mail,assunto,cidade,estado,observacao) VALUES(?,?,?,?,?,?)";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$nome);
+		$result->bindParam(2,$email);
+		$result->bindParam(3,$assunto);
+		$result->bindParam(4,$cidade);
+		$result->bindParam(5,$estado);
+		$result->bindParam(6,$observacao);
+		$result->execute();
+		$retorno = false;
+		echo $result->rowCount();
+		if($result->rowCount()>0){
+			$retorno=true;
+		}else{
+			$retorno=false;
+		}
+		return $retorno;
+	}
+
+}
+
+?>
