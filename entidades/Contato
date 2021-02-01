@@ -1,0 +1,77 @@
+<?php
+class Contato {
+  private id;
+  private nome;
+  private e_mail;
+  private assunto;
+  private cidade;
+  private estado;
+  private observacao;
+  private reg_date;
+
+  public function getId() {
+    return $this->nome;
+  }
+  
+  public function setId($id) {
+    $this->id= $id;
+  }
+
+  public function getNome() {
+    return $this->nome;
+  }
+  
+  public function setNome($nome) {
+    $this->nome= $nome;
+  }
+
+  public function getEmail() {
+    return $this->e_mail;
+  }
+  
+  public function setEmail($email) {
+    $this->e_mail= $email;
+  }
+
+  public function getAssunto() {
+    return $this->assunto;
+  }
+  
+  public function setAssunto($assunto) {
+    $this->assunto= $assunto;
+  }
+
+  public function getCidade() {
+    return $this->cidade;
+  }
+  
+  public function setCidade($cidade) {
+    $this->cidade= $cidade;
+  }
+
+  public function getEstado() {
+    return $this->estado;
+  }
+  
+  public function setEstado($estado) {
+    $this->estado= $estado;
+  }
+
+  public function getObservacao() {
+    return $this->observacao;
+  }
+  
+  public function setObservacao($observacao) {
+    $this->observacao= $observacao;
+  }
+
+  public function getRegDate() {
+    return $this->reg_date;
+  }
+  
+  public function setRegDate($reg_date) {
+    $this->reg_date= $reg_date;
+  }
+
+}
+?>

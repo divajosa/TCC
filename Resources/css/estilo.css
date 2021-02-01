@@ -1,0 +1,195 @@
+<style type="text/css">
+  
+.body {
+    font-family: 'Istok Web', sans-serif;
+    font-size: 13px;
+   
+  }
+
+.page{
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 800px;
+    height: 500px;
+  }
+
+
+#bs-feedback{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transform: translateY(-100%);
+    transition: transform .5s ease-in-out;
+            }
+
+.container {
+    width: 1000px;
+    margin: 0px auto;
+  }
+
+#header-wrapper {
+   
+    height: 75px;
+    background: #5532A3;
+  }
+
+#header {
+    height: 140px;
+    margin: 0 auto;
+    padding: 0px 0px;
+  }
+
+#logo {
+    float: left;
+    width: 300px;
+    height: 80px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+#logo h1 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+    font-size: 3em;
+    color: #ffffff;
+    margin-top: 5px; 
+    margin-left: 10px;
+  }
+
+h2{
+
+    font-family: "Times New Roman", Times, serif;
+    font-size: 30px;
+    color: #000000;
+    margin-top: 10px;
+    margin-left: 600px;
+}
+
+.destaque_laranja2{
+    color: #0000ff !important;
+    
+}
+
+#banner-wrapper {
+    overflow: hidden;
+    height: 345px;
+    padding: 40px 0px;
+    background: url(images/img03.png) repeat;
+  }
+
+#banner {
+    overflow: hidden;
+    width: 1000px;
+    margin: 0px auto;
+  }
+
+#footer p a{
+    height: 30px;
+    margin: 0 auto;
+    padding: 15px 0px 15px 0px;
+    margin: 0;
+    padding: 0;
+    background: #5532A3;
+    font-family: 'Istok Web', sans-serif;
+    font-size: 13px;
+    color: #ffffff !important;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+}
+
+.button-style a {
+    position: relative;
+    padding: 7px 30px;
+    background: #5532A3;
+    border-radius: 5px;
+    border: 1px solid #442881;
+    color: #ffffff;
+
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 300;
+  }
+
+/*.retangulo{
+    background-color: #f2f2f2;
+  }*/
+
+.endResp{
+    margin-right: -;
+    right: -15;
+    left: -15;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 990px;
+    height: 800px;
+    left: 30px;
+    border-radius: 12px;
+    }
+
+.endAltSen{
+    margin-right: -;
+    right: -15;
+    left: -15;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 990px;
+    height: 300px;
+    left: 30px;
+    border-radius: 12px;
+    }
+
+.endCont{
+    margin-right: -;
+    right: -15;
+    left: -15;
+    padding-right: 5px;
+    padding-left: 5px;
+    width: 990px;
+    height: 300px;
+    left: 30px;
+    border-radius: 12px;
+    }
+
+.endCadIds{
+      height: 550px;
+    }
+
+#nav {
+    position: absolute;
+    width:100%;
+}
+
+ul#navigation {
+    margin:0px auto;
+    position: absolute;
+}
+ 
+ul#navigation li {
+    display:inline;
+    font-size:16px;
+    font-weight:bold;
+    margin:0;
+    padding:0;
+    float:left;
+    position:relative;
+}
+
+.dropdown, ul, li, a{
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+.nav-link{
+  margin-top: 15px;
+   
+}
+ 
+  </style>
+
+

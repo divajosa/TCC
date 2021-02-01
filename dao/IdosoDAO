@@ -1,0 +1,60 @@
+<?php
+
+require_once("../util/Conexao.php");
+require_once("../entidades/Idoso");
+class IdosoDAO{
+
+	public static function getInstance() {
+        if (!isset(self::$instance))
+            self::$instance = new IdosoDAO();
+ 
+        return self::$instance;
+    }
+
+    public function lista(){
+		$sql = "SELECT * FROM idoso;";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->execute();
+		$c = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $c;
+		//return $result;
+	}
+
+	public function listaIdosoPorResponsabel($responsavel){
+		$sql = "SELECT * FROM idoso WHERE responsavel=?";
+
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$responsavel);
+		$result->execute();
+		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		return $resultado;
+	}
+
+	//nome,sobrenome,cpf,dtNasc,endereco,numero,complemento,bairro,cidade,estado,cep
+	public function criaIdoso($nome,$sobrenome,$cpf,$dtNasc,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep){
+		$sql = "INSERT INTO tcc.idoso(nome,sobrenome,cpf,data_nascimento,endereco,numero,complemento,bairro,cidade,estado,cep) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+		$result = Conexao::getInstance()->prepare($sql);
+		$result->bindParam(1,$nome);
+		$result->bindParam(2,$sobrenome);
+		$result->bindParam(3,$cpf);
+		$result->bindParam(4,$dtNasc);
+		$result->bindParam(5,$endereco);
+		$result->bindParam(6,$numero);
+		$result->bindParam(7,$complemento);
+		$result->bindParam(8,$bairro);
+		$result->bindParam(9,$cidade);
+		$result->bindParam(10,$estado);
+		$result->bindParam(11,$cep);
+		$result->execute();
+		$retorno = false;
+		echo $result->rowCount();
+		if($result->rowCount()>0){
+			$retorno=true;
+		}else{
+			$retorno=false;
+		}
+		return $retorno;
+	}
+}
+
+?>
