@@ -62,25 +62,7 @@ html,body{
               <p style="margin: 5 0 0 0"> -->
 
               </td>
-            </tr>
-                <br>
-              <h4>Idosos Cadastrados</h4>
-            <div class="w3-container">
-            <table class="w3-table-all">
-                <thead>
-                  <tr class="w3-pale-green">
-                      <th>Nome Idoso</th>
-                      <th>Alterar</th>
-                      <th>Excluir</th>
-                  </tr>
-              </thead>
-                <?php
-                $idosoDao = new IdosoDAO();
-                $rdd = $idosoDao->listaIdosoPorResponsabel($_SESSION["id_usuario"]);
-                for ($i = 0; $i < count($rdd); $i++) {
-                  echo "<tr>\n<td>".$rdd[0]['nome']."</td>\n<td class=\"far fa-edit\"></td>\n<td class=\"far fa-trash-alt\"></td>\n</tr>";
-                }
-                ?>
+            </tr> 
                 <!--
                 <tr>
                   <td>Fulano de tal</td>

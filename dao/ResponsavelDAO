@@ -31,16 +31,16 @@ class ResponsavelDAO{
 		//return $result;
 	}
 
-	public function login($email,$senha){
-		$sql = "SELECT * FROM responsavel WHERE e_mail=? AND senha=?";
+	public function login($e_mail,$senha){
+		$sql = "SELECT e_mail, senha FROM responsavel WHERE e_mail='? 'AND senha='?'";
 
 		$result = Conexao::getInstance()->prepare($sql);
-		$result->bindParam(1,$email);
+		$result->bindParam(1,$e_mail);
 		$result->bindParam(2,$senha);
 		$result->execute();
-		$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
-		return $resultado[0];
-		//return $result;
+		//$resultado = $result->fetchAll(PDO::FETCH_ASSOC);
+		//return $resultado[1];
+		return $result;
 	}
 
 	public function alteraEmail($id,$email){
@@ -108,16 +108,16 @@ class ResponsavelDAO{
 		return $resultado[0];
 	}
 
-	public function criaResponsavel($nome,$sobrenome,$dtNasc,$cpf,$email,$senha,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep,$celular,$telefone,$observacao){
+	public function criaResponsavel($nome,$sobrenome,$data_nascimento,$cpf,$e_mail,$senha,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep,$celular1,$celular2,$telefone_fixo,$observacao){
 
-		$sql = "INSERT INTO tcc.responsavel VALUES ($nome,$sobrenome,$dtNasc,$cpf,$email,$senha,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep,$celular,$telefone,$observacao) ";
+		$sql = "INSERT INTO tcc.responsavel VALUES ('$nome','$sobrenome','$data_nascimento','$cpf','$e_mail','$senha','$endereco',$numero,'$complemento','$bairro','$cidade','$estado',$cep,$celular1,$celular2,$telefone_fixo,'$observacao')";
 
 		$result = Conexao::getInstance()->prepare($sql);
 		$result->bindParam(1,$nome);
 		$result->bindParam(2,$sobrenome);
-		$result->bindParam(3,$dtNasc);
+		$result->bindParam(3,$data_nascimento);
 		$result->bindParam(4,$cpf);
-		$result->bindParam(5,$email);
+		$result->bindParam(5,$e_mail);
 		$result->bindParam(7,$senha);
 		$result->bindParam(8,$endereco);
 		$result->bindParam(9,$numero);
@@ -126,9 +126,10 @@ class ResponsavelDAO{
 		$result->bindParam(12,$cidade);
 		$result->bindParam(13,$estado);
 		$result->bindParam(14,$cep);
-		$result->bindParam(15,$celular);
-		$result->bindParam(16,$telefone);
-		$result->bindParam(17,$observacao);
+		$result->bindParam(15,$celular1);
+		$result->bindParam(16,$celular2);
+		$result->bindParam(17,$telefone_fixo);
+		$result->bindParam(18,$observacao);			
 		$result->execute();
 		$retorno = false;
 		echo $result->rowCount();

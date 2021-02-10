@@ -9,15 +9,15 @@ require_once "../dao/ResponsavelDAO";
 session_start(); 
  
 // Recupera o senha 
-$email = isset($_POST["email"]) ? addslashes(trim($_POST["email"])) : FALSE; 
+$e_mail = isset($_POST["e_mail"]) ? addslashes(trim($_POST["e_mail"])) : FALSE; 
 // Recupera a senha, a criptografando em MD5 
-$senha = isset($_POST["senha"]) ? md5(trim($_POST["senha"])) : FALSE; 
+$senha = isset($_POST["senha"]) ? addslashes(trim($_POST["senha"])) : FALSE; 
 
-echo $email;
+echo $e_mail;
 echo $senha;
 
 // Usuário não forneceu a senha ou o login 
-if(!$email || !$senha) 
+if(!$e_mail || !$senha) 
 { 
     echo "Você deve digitar seu email e senha!"; 
     exit; 
@@ -28,15 +28,12 @@ $rdd = $loginDAO->lista();
 echo "  ";
 //var_dump($rdd);
 
-$dados = $loginDAO->login($email,$senha);
+$dados = $loginDAO->login($e_mail,$senha);
 var_dump($dados);
 if($dados) 
 { 
         echo "entrou dados";
         // TUDO OK! Agora, passa os dados para a sessão e redireciona o usuário 
-        $_SESSION["id_usuario"]= $dados["id"]; 
-        $_SESSION["nome_usuario"] = stripslashes($dados["nome"])." ".stripslashes($dados["sobrenome"]); 
-        $_SESSION["permissao"]= $dados["postar"]; 
         header("Location: ../view/Portal_Cliente.php"); 
         exit; 
     

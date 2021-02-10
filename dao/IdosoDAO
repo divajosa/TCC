@@ -30,14 +30,18 @@ class IdosoDAO{
 		return $resultado;
 	}
 
-	//nome,sobrenome,cpf,dtNasc,endereco,numero,complemento,bairro,cidade,estado,cep
-	public function criaIdoso($nome,$sobrenome,$cpf,$dtNasc,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep){
-		$sql = "INSERT INTO tcc.idoso(nome,sobrenome,cpf,data_nascimento,endereco,numero,complemento,bairro,cidade,estado,cep) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+
+
+	public function criaIdoso($nome,$sobrenome,$cpf,$data_nascimento,$endereco,$numero,$complemento,$bairro,$cidade,$estado,$cep, $observacao){
+
+		$sql = "INSERT INTO tcc.idoso  VALUES('$nome','$sobrenome','$cpf','$data_nascimento','$endereco',$numero,'$complemento','$bairro','$cidade','$estado',$cep,'$observacao')";
+		
 		$result = Conexao::getInstance()->prepare($sql);
+
 		$result->bindParam(1,$nome);
 		$result->bindParam(2,$sobrenome);
 		$result->bindParam(3,$cpf);
-		$result->bindParam(4,$dtNasc);
+		$result->bindParam(4,$data_nascimento);
 		$result->bindParam(5,$endereco);
 		$result->bindParam(6,$numero);
 		$result->bindParam(7,$complemento);
@@ -45,9 +49,13 @@ class IdosoDAO{
 		$result->bindParam(9,$cidade);
 		$result->bindParam(10,$estado);
 		$result->bindParam(11,$cep);
+		$result->bindParam(12,$observacao);
+
+		 echo ($sql);
 		$result->execute();
 		$retorno = false;
 		echo $result->rowCount();
+		
 		if($result->rowCount()>0){
 			$retorno=true;
 		}else{

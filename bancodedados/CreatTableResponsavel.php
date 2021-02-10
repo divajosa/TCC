@@ -12,12 +12,11 @@ if (!$conn){
 	die("Connection failed: ".mysqli_connect_error());
 }
 
-$sql = "CREATE TABLE Responsavel (id INT(15) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+$sql = "CREATE TABLE Responsavel (
 nome VARCHAR(50) NOT NULL,
 sobrenome VARCHAR(200) NOT NULL,
 data_nascimento VARCHAR(12) NOT NULL,
 cpf int (13) NOT NULL,
-sexo VARCHAR(20) NOT NULL,
 e_mail VARCHAR(20) NOT NULL,
 senha VARCHAR (20) NOT NULL,
 endereco VARCHAR(100) NOT NULL,
@@ -30,8 +29,8 @@ cep int (20) NOT NULL,
 celular1 VARCHAR(20) NOT NULL,
 celular2 VARCHAR(20) NOT NULL,
 telefone_fixo VARCHAR(20) NOT NULL,
-observacao VARCHAR(3000) NOT NULL,
-reg_date TIMESTAMP)";
+observacao VARCHAR(3000) NOT NULL
+)";
 
 if (mysqli_query($conn,$sql)) { echo "Tabela Responsavel foi criada com sucesso";
 } else {

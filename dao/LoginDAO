@@ -12,7 +12,7 @@ class LoginDAO{
     }
 
     public function lista(){
-		$sql = "SELECT * FROM login;";
+		$sql = "SELECT * FROM responsavel;";
 		$result = Conexao::getInstance()->prepare($sql);
 		$result->execute();
 		$c = $result->fetchAll(PDO::FETCH_ASSOC);
@@ -20,11 +20,11 @@ class LoginDAO{
 		//return $result;
 	}
 
-	public function login($email,$senha){
-		$sql = "SELECT * FROM login WHERE e_mail=? AND senha=?";
+	public function login($e_mail,$senha){
+		$sql = "SELECT e_mail, senha FROM responsavel WHERE e_mail=? AND senha=?";
 
 		$result = Conexao::getInstance()->prepare($sql);
-		$result->bindParam(1,$email);
+		$result->bindParam(1,$e_mail);
 		$result->bindParam(2,$senha);
 		return $result->execute();
 		//return $result;

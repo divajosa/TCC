@@ -1,6 +1,7 @@
 <?php
 require_once("../util/Conexao.php");
-require_once "../dao/ResponsavelDAO";
+require_once ("../dao/ResponsavelDAO");
+
 ?>
 
 <?php 
@@ -15,9 +16,9 @@ $retornoPagina = false;
 	$salvResp = $responsavelDao->criaResponsavel(
 		$_POST["nome"],
 		$_POST["sobrenome"],
-		$_POST["dtNasc"],
+		$_POST["data_nascimento"],
 		$_POST["cpf"],
-		$_POST["email"],
+		$_POST["e_mail"],
 		$_POST["senha"],
 		$_POST["endereco"],
 		$_POST["numero"],
@@ -26,8 +27,9 @@ $retornoPagina = false;
 		$_POST["cidade"],
 		$_POST["estado"],
 		$_POST["cep"],
-		$_POST["celular"],
-		$_POST["telefone"],
+		$_POST["celular1"],
+		$_POST["celular2"],
+		$_POST["telefone_fixo"],
 		$_POST["observacao"]
 	);
 

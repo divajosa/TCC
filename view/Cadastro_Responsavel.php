@@ -66,9 +66,9 @@ html,body{
 							</div>
 
 							<div class="form-group col-md-2">
-								<label for="dtNasc">Data Nascimento</label>
-								<div class='input-group date' style= "width: 200px;" id='dtNasc'>
-									<input type="date" id="dtNasc" name="dtNasc" class="form-control" style="height: 28px; padding-top: 1px;padding-bottom: 1px;">
+								<label for="data_nascimento">Data Nascimento</label>
+								<div class='input-group date' style= "width: 200px;" id='data_nascimento'>
+									<input type="date" id="data_nascimento" name="data_nascimento" class="form-control" style="height: 28px; padding-top: 1px;padding-bottom: 1px;">
 									<span class="input-group-addon">
 										<span class="glyphicon glyphicon-calendar"></span>
 									</span>
@@ -89,8 +89,8 @@ html,body{
 
 					
 							<div class="form-group col-md-6">
-								<label for="email">*Email</label>
-								<input type="text" id="email" name="email" class="form-control" id="email" placeholder=" ">
+								<label for="e_mail">*Email</label>
+								<input type="text" id="e_mail" name="e_mail" class="form-control" id="e_mail" placeholder=" ">
 							</div>
 
 							<div class="form-group col-md-3">
@@ -183,17 +183,17 @@ html,body{
 
 								<div class="form-group col-md-4">
 									<label for="celular1">*Celular</label>
-									<input type="number" id="celular" name="celular" class="form-control" id="celular1" placeholder=" ">
+									<input type="number" id="celular1" name="celular1" class="form-control" id="celular1" placeholder=" ">
 								</div>
 
-								<!--<div class="form-group col-md-4">
-									<label for="celular2">Celular 2</label>
-									<input type="number" class="form-control" id="celular2" placeholder=" ">
-								</div>-->
+								<div class="form-group col-md-4">
+									<label for="celular2">*Celular</label>
+									<input type="number" id="celular2" name="celular2" class="form-control" id="celular2" placeholder=" ">
+								</div>
 
 								<div class="form-group col-md-4">
-									<label for="telefone">Telefone</label>
-									<input type="number" id="telefone" name="telefone" class="form-control" id="telefone" placeholder=" ">
+									<label for="telefone_fixo">Telefone</label>
+									<input type="number" id="telefone_fixo" name="telefone_fixo" class="form-control" id="telefone_fixo" placeholder=" ">
 								</div>
 
 								<div class="form-group col-md-12">

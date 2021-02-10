@@ -145,14 +145,14 @@ li {
 							<div class="input-group-prepend">
 								<label class="input-group-text"><i class="fas fa-user"></i></label>
 							</div>
-							<input type="email" id="txtEmail" name="email" class="form-control" placeholder="e-mail" required>
+							<input type="email" id="e_mail" name="e_mail" class="form-control" placeholder="e-mail" required>
 
 						</div>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
 								<label class="input-group-text"><i class="fas fa-key"></i></label>
 							</div>
-							<input type="password" id="txtSenha" name="senha" class="form-control" placeholder="senha" required>
+							<input type="password" id="senha" name="senha" class="form-control" placeholder="senha" required>
 						</div>
 
 						<div class="form-group">
@@ -163,8 +163,8 @@ li {
 						(function (){
 							'use Strict';
 							var $form = document.querySelector('form')
-							var $txtEmail = document.getElementById('txtEmail');
-							var $txtSenha = document.getElementById('txtSenha');
+							var $txtEmail = document.getElementById('e_mail');
+							var $txtSenha = document.getElementById('senha');
 							var $btn = document.getElementById('btn');
 
 							$form.addEventListener('submit', function(e){

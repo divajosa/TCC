@@ -40,7 +40,7 @@ html,body{
 <?php
     include_once "template/header.php";
     ?>
-<form method="POST" action="Cadastro_Idoso">
+<form method="POST" action="../servlet/Cadastro_Idoso.php">
   <div class="container-fluid">
     <div>
       <h2 style="margin-left: 500px;">CADASTRO DO IDOSO</h2>
@@ -66,112 +66,104 @@ html,body{
                 height: 30%;">
             </div>
 
-              <div class="col-md-4" style="margin-top: 2.5%;">
-                <label for="dtNasc">Data Nascimento</label>
-                <div class='input-group date' style= "width: 210px;" id='datetimepicker1'>
-                  <input type="date" id="dtNasc" class="form-control" style="height: 28%; padding-top: 1px;padding-bottom: 1px;">
-                  <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                  </span>
-                </div>
-              </div>
+            <div class="form-group col-md-2">
+								<label for="data_nascimento">Data Nascimento</label>
+								<div class='input-group date' style= "width: 200px;" id='data_nascimento'>
+									<input type="date" id="data_nascimento" name="data_nascimento" class="form-control" style="height: 28px; padding-top: 1px;padding-bottom: 1px;">
+									<span class="input-group-addon">
+										<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+							</div>
 
               <script type="text/javascript">
-                $(function () {
-                  $('#datetimepicker1').datetimepicker();
-                });
-              </script>
+								$(function () {
+									$('#datetimepicker1').datetimepicker();
+								});
+							</script>
 
-          <div class="form-row col-md-12" style="  padding-left: 2px;
-          padding-right: 2px;" >
-          <div class="col-md-7">
-            <br><label for="endereco" style="margin-left: 12px;">*Endereço</label>
-            <input type="text" class="form-control" style= "width: 550px; margin-left: 12px; height: 30%;" id="endereco" placeholder="rua, av, pass etc... ">
-          </div>
+<div class="form-group row" style="padding-right: 2px; padding-left: 2px;padding-right: 2px;padding-left: 2px; width: 978px; height: 325px;margin-right: 5px; margin-bottom: 5px;padding-right: 2px; padding-left: -50px; border-left-width: 2px; margin-left: -20;">
+								<div class="form-group col-md-5">
+									<label for="endereco">Endereço</label>
+									<input type="text" id="endereco" name="endereco" class="form-control" placeholder="rua, av, pass etc... ">
+								</div>
 
-          <div class="col-md-2">
-            <br><label for="numero">*Número</label>
-            <input type="number" class="form-control" id="numero" placeholder=" " style="
-                height: 30%;">
-          </div>
+								<div class="form-group col-md-2">
+									<label for="numero">*Número</label>
+									<input type="number" id="numero" name="numero" class="form-control" id="numero" placeholder=" ">
+								</div>
 
-          <div class="col-md-3">
-            <br><label for="complemento">*Complemento</label>
-            <input type="text" class="form-control" id="complemento" placeholder="nº apto " style="
-                height: 30%;">
-          </div>
-        </div>
+								<div class="form-group col-md-2">
+									<label for="complemento">Complemento</label>
+									<input type="text" id="complemento" name="complemento"  class="form-control" id="complemento" placeholder="apto ">
+								</div>
 
-        <div class="col-md-4">
-          <br><label for="bairro">*Bairro</label>
-          <input type="text" class="form-control" id="bairro" placeholder=" " style="
-                height: 30%;">
-        </div>
+								<div class="form-group col-md-3">
+									<label for="bairro">*Bairro</label>
+									<input type="text" id="bairro" name="bairro"  class="form-control" id="bairro" placeholder=" ">
+								</div>
 
-        <div class="col-md-3">
-          <br><label for="cidade">*Cidade</label>
-          <input type="text" class="form-control" id="cidade" style="
-                height: 30%;">
-        </div>
+								<div class="form-group col-md-7">
+									<label for="cidade">*Cidade</label>
+									<input type="text" id="cidade" name="cidade"  class="form-control" id="cidade">
+								</div>
 
-        <div class="col-md-2">
-          <br><label for="estado">*Estado</label>
-          <select id="estado" class="form-control" style="
-                height: 30%;">
-            <option selected>Escolher...</option>
-            <option  selected value=" ">
-              <option value=AC>AC</option> 
-              <option value=AL>AL</option> 
-              <option value=AP>AP</option>
-              <option value=AM>AM</option> 
-              <option value=BA>BA</option> 
-              <option value=CE>CE</option> 
-              <option value=DF>DF</option> 
-              <option value=ES>ES</option> 
-              <option value=GO>GO</option>
-              <option value=MA>MA</option>
-              <option value=MT>MT</option> 
-              <option value=MS>MS</option>
-              <option value=MG>MG</option>
-              <option value=PA>PA</option> 
-              <option value=PB>PB</option>
-              <option value=PR>PR</option> 
-              <option value=PE>PE</option> 
-              <option value=PI>PI</option> 
-              <option value=RJ>RJ</option> 
-              <option value=RN>RN</option> 
-              <option value=RS>RS</option>
-              <option value=RO>RO</option> 
-              <option value=RR>RR</option> 
-              <option value=SC>SC</option> 
-              <option value=SP>SP</option> 
-              <option value=SE>SE</option> 
-              <option value=TO>TO</option>
-            </option>
-          </select>
-        </div>
+								<div class="form-group col-md-2">
+									<label for="estado">*Estado</label>
+									<select id="estado" id="estado" name="estado" class="form-control" style="font-size: 12px; padding-top: 1px;padding-bottom: 1px;">
+										<option selected>Escolher...</option>
+										<option  selected value=" ">
+											<option value=AC>AC</option> 
+											<option value=AL>AL</option> 
+											<option value=AP>AP</option>
+											<option value=AM>AM</option> 
+											<option value=BA>BA</option> 
+											<option value=CE>CE</option> 
+											<option value=DF>DF</option> 
+											<option value=ES>ES</option> 
+											<option value=GO>GO</option>
+											<option value=MA>MA</option>
+											<option value=MT>MT</option> 
+											<option value=MS>MS</option>
+											<option value=MG>MG</option>
+											<option value=PA>PA</option> 
+											<option value=PB>PB</option>
+											<option value=PR>PR</option> 
+											<option value=PE>PE</option> 
+											<option value=PI>PI</option> 
+											<option value=RJ>RJ</option> 
+											<option value=RN>RN</option> 
+											<option value=RS>RS</option>
+											<option value=RO>RO</option> 
+											<option value=RR>RR</option> 
+											<option value=SC>SC</option> 
+											<option value=SP>SP</option> 
+											<option value=SE>SE</option> 
+											<option value=TO>TO</option>
+										</option>
+									</select>
+								</div>
 
-        <div class="col-md-3">
-          <br><label for="cep">*CEP</label>
-          <input type="number" class="form-control" id="cep" style="
-                height: 30%;">
-        </div>
+								<div class="form-group col-md-3">
+									<label for="cep">*CEP</label>
+									<input type="number" id="cep" name="cep" class="form-control" id="cep">
+								</div>
 
-        <script>
-          var cep = '01234-050';
+								<script>
+							        var cep = '01234-050';
 
-          function isValidCEP(srt){
-            var regex = /\d{5}-\d{3}/gi;
-            return regex.test(str);
-          }
-        </script>
+							        function isValidCEP(srt){
+							        var regex = /\d{5}-\d{3}/gi;
+							            return regex.test(str);
+							        }
+       							</script>
 
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="observacao">*Observação</label>
-            <textarea type="observacao" class="form-control" id="observacao" rows="3" placeholder=" " required/></textarea>
-          </div>
-        </div>
+                <div class="form-group col-md-12">
+									<div class="form-group">
+										<label for="observacao">Observação</label>
+										<textarea type="observacao" name="observacao" class="form-control" id="observacao" rows="3" placeholder=" " required/></textarea>
+									</div>
+								</div>
 
         <div><br>
           <p style="color: #ffffff; margin-top: -30px; margin-left: 20px;">* Campos com preenchimento obrigatório</p>
